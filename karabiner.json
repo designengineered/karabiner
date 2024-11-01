@@ -4,29 +4,81 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Caps Lock → Hyper Key (⌃⌥⇧⌘) | Escape if alone | Use fn + caps lock to enable caps lock",
+                        "description": "Right Option + Space to Delete Word Forward",
                         "manipulators": [
                             {
-                                "from": { "key_code": "caps_lock" },
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["right_option"] }
+                                },
                                 "to": [
                                     {
-                                        "key_code": "left_shift",
-                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                        "key_code": "delete_forward",
+                                        "modifiers": ["option"]
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "escape" }],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "Change right_control+hjkl to arrow keys",
+                        "description": "Left Shift + Spacebar => Backspace",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["left_shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "lazy": true,
+                                        "repeat": true
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Left Option + Space to Delete Word (Option + Backspace)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Ctl + Spacebar to Enter",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [{ "key_code": "return_or_enter" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change left_control+hjkl to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory": ["right_control"],
+                                        "mandatory": ["left_control"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -37,7 +89,7 @@
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "mandatory": ["right_control"],
+                                        "mandatory": ["left_control"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -48,7 +100,7 @@
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "mandatory": ["right_control"],
+                                        "mandatory": ["left_control"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -59,11 +111,27 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory": ["right_control"],
+                                        "mandatory": ["left_control"],
                                         "optional": ["any"]
                                     }
                                 },
                                 "to": [{ "key_code": "right_arrow" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Caps Lock → Hyper Key (⌃⌥⇧⌘) | Escape if alone | Use cmd + caps lock to enable caps lock",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "caps_lock" },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "escape" }],
                                 "type": "basic"
                             }
                         ]
@@ -81,7 +149,7 @@
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
                                     {
-                                        "key_code": "right_control",
+                                        "key_code": "left_control",
                                         "lazy": true
                                     }
                                 ],
@@ -129,7 +197,7 @@
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
                                     {
-                                        "key_code": "right_command",
+                                        "key_code": "left_command",
                                         "lazy": true
                                     }
                                 ],
@@ -145,7 +213,7 @@
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
                                     {
-                                        "key_code": "left_command",
+                                        "key_code": "right_command",
                                         "lazy": true
                                     }
                                 ],
@@ -193,7 +261,7 @@
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
                                     {
-                                        "key_code": "left_control",
+                                        "key_code": "right_control",
                                         "lazy": true
                                     }
                                 ],
@@ -202,40 +270,15 @@
                         ]
                     },
                     {
-                        "description": "Left Shift + Spacebar => Backspace",
+                        "description": "Mac OSX: disable cmd + h and cmd + m to prevent minimising or hiding an application window",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["left_shift"] }
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["command"] }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "delete_or_backspace",
-                                        "lazy": true,
-                                        "repeat": true
-                                    }
-                                ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Ctl + Spacebar to Enter",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["control"] }
-                                },
-                                "to": [{ "key_code": "return_or_enter" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Mac OSX: disable cmd + h to prevent minimising an application window",
-                        "manipulators": [
+                            },
                             {
                                 "from": {
                                     "key_code": "m",
@@ -266,37 +309,6 @@
                                         "optional": ["any"]
                                     }
                                 },
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Option + Space to Delete Word (Option + Backspace)",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["option"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "delete_or_backspace",
-                                        "modifiers": ["option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Map Fn + SpaceBar to Forward Delete",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["fn"] }
-                                },
-                                "to": [{ "key_code": "delete_forward" }],
                                 "type": "basic"
                             }
                         ]
