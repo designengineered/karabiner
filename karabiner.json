@@ -20,6 +20,55 @@
                         ]
                     },
                     {
+                        "description": "Change right_control+hjkl to arrow keys",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": ["right_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "left_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": ["right_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "down_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": ["right_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "up_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["right_control"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "right_arrow" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Home Row Mods (ASDF and JKL;) with backspace indicator",
                         "manipulators": [
                             {
@@ -27,12 +76,12 @@
                                     "key_code": "a",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 170 },
                                 "to": [{ "key_code": "a" }],
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
                                     {
-                                        "key_code": "left_control",
+                                        "key_code": "right_control",
                                         "lazy": true
                                     }
                                 ],
@@ -43,7 +92,7 @@
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 170 },
                                 "to": [{ "key_code": "s" }],
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
@@ -59,7 +108,7 @@
                                     "key_code": "d",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 170 },
                                 "to": [{ "key_code": "d" }],
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
@@ -75,7 +124,7 @@
                                     "key_code": "f",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 170 },
                                 "to": [{ "key_code": "f" }],
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
@@ -91,7 +140,7 @@
                                     "key_code": "j",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 170 },
                                 "to": [{ "key_code": "j" }],
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
@@ -107,7 +156,7 @@
                                     "key_code": "k",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 170 },
                                 "to": [{ "key_code": "k" }],
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
@@ -123,7 +172,7 @@
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 170 },
                                 "to": [{ "key_code": "l" }],
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
@@ -139,12 +188,12 @@
                                     "key_code": "semicolon",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 150 },
+                                "parameters": { "basic.to_if_held_down_threshold_milliseconds": 170 },
                                 "to": [{ "key_code": "semicolon" }],
                                 "to_if_held_down": [
                                     { "key_code": "delete_or_backspace" },
                                     {
-                                        "key_code": "right_control",
+                                        "key_code": "left_control",
                                         "lazy": true
                                     }
                                 ],
@@ -172,63 +221,14 @@
                         ]
                     },
                     {
-                        "description": "Left Ctl + Spacebar to Enter",
+                        "description": "Ctl + Spacebar to Enter",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["left_control"] }
+                                    "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [{ "key_code": "return_or_enter" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change right_command+hjkl to arrow keys",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "key_code": "left_arrow" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "key_code": "down_arrow" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "key_code": "up_arrow" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "key_code": "right_arrow" }],
                                 "type": "basic"
                             }
                         ]
@@ -266,6 +266,24 @@
                                         "optional": ["any"]
                                     }
                                 },
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Option + Space to Delete Word (Option + Backspace)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
